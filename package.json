@@ -1,0 +1,23 @@
+{
+  "name": "travel-site-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elghannay/travel-site.git"
+  },
+  "author": "mohamed el ghannay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elghannay/travel-site/issues"
+  },
+  "homepage": "https://github.com/elghannay/travel-site#readme",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0"
+  }
+}
