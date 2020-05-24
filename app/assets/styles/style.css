@@ -1,0 +1,9 @@
+a {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: grid;
+    padding-block-end: 1;
+    :hover {
+        background-color: red;
+    }
+}

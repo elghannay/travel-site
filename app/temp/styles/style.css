@@ -1,0 +1,11 @@
+a {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: grid;
+    -webkit-padding-after: 1;
+    padding-block-end: 1;
+}
+
+a :hover {
+    background-color: red;
+}
