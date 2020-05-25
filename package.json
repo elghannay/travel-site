@@ -25,6 +25,7 @@
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-watch": "^5.0.1",
+    "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
     "postcss-simple-vars": "^5.0.2"
   }
