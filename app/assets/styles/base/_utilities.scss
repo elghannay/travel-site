@@ -1,5 +1,6 @@
 .wrapper {
-    max-width: 1200px;
+    max-width: 1236px;
+    // take into account the extra padding defined
     margin: 0 auto;
     padding-left: 18px;
     padding-right: 18px;
@@ -19,6 +20,12 @@
     margin-bottom: 3.5rem;
     @include phone {
         margin-bottom: 1rem;
+    }
+}
+.mt {
+    margin-top: 2rem;
+    @include phone {
+        margin-top: 1rem;
     }
 }
 .image-center {
