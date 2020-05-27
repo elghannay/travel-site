@@ -27,4 +27,15 @@
             margin: 0 auto;
         }
     }
+    &--medium-6 {
+        float: left;
+        width: 50%;
+        // margin-right: 5rem;
+        @include phone {
+            margin-right: 0rem;
+            width: 100%;
+            display: block;
+            // margin: 0 auto;
+        }
+    }
 }
