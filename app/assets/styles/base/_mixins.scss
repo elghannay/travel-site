@@ -1,17 +1,17 @@
-@mixin atSmall {
-    @media screen and (min-width: 530px) {
+@mixin phone {
+    @media screen and (max-width: 600px) {
         @content;
     }
 }
 
-@mixin atMedium {
-    @media screen and (min-width: 800px) {
+@mixin tablet-port {
+    @media screen and (max-width: 900px) {
         @content;
     }
 }
 
-@mixin atLarge {
-    @media screen and (min-width: 1200px) {
+@mixin tablet-land {
+    @media screen and (max-width: 1200px) {
         @content;
     }
 }
