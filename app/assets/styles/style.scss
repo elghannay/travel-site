@@ -1,8 +1,9 @@
 @import "normalize.css";
 @import "base/global";
-@import "base/variables";
 @import "base/mixins";
+@import "base/variables";
+@import "base/grid";
+@import "base/typography";
 @import "base/utilities";
-@import "base/typography.scss";
 @import "modules/btn";
 @import "modules/large-hero";

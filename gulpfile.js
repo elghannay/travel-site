@@ -12,7 +12,8 @@ gulp.task('styles', function () {
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(postcss([autoprefixer('last 2 versions'), cssnano()]))
         .pipe(gulp.dest('./app/temp/styles/'))
-        .pipe(browsersync.reload({ stream: true }));
+        .pipe(browsersync.stream());
+    // .pipe(browsersync.reload({ stream: true }));
 });
 
 gulp.task('watch', function () {
