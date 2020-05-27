@@ -1,0 +1,31 @@
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.page-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    @include phone {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    &--blue {
+        background-color: $mainblue;
+    }
+}
+.mb {
+    margin-bottom: 3.5rem;
+    @include phone {
+        margin-bottom: 1rem;
+    }
+}
+.image-center {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+.center {
+    text-align: center;
+}

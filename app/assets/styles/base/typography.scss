@@ -1,0 +1,18 @@
+.heading {
+    &--primary {
+        color: $mainblue;
+        font-size: 2.5rem;
+        font-weight: 400;
+        @include phone {
+            font-size: 1.5rem;
+        }
+    }
+    &--secondary {
+        color: $mainOrange;
+        font-size: 2rem;
+        font-weight: 400;
+        @include phone {
+            font-size: 1.2rem;
+        }
+    }
+}
