@@ -1,0 +1,45 @@
+.features {
+    color: white;
+    h2 {
+        font-size: 3.5rem;
+        font-weight: 400;
+        text-align: center;
+        @include phone {
+            font-size: 2.5rem;
+        }
+    }
+    strong {
+        font-size: 3.5rem;
+        @include phone {
+            font-size: 2.5rem;
+        }
+    }
+
+    .feature {
+        margin-top: 2rem;
+        @include phone {
+            padding: 0 1rem;
+        }
+        padding: 0 4rem;
+        img,
+        h3 {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 1rem;
+            @include phone {
+                display: block;
+                text-align: center;
+                margin: 0 auto;
+                margin-bottom: 1rem;
+                // width: 100%;
+            }
+        }
+        p {
+            @include phone {
+                margin-left: 0rem;
+            }
+
+            margin-left: 5.2rem;
+        }
+    }
+}
