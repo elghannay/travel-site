@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
@@ -13,4 +15,7 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+a {
+    color: $mainOrange;
 }
