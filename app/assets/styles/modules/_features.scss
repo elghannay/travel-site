@@ -17,10 +17,10 @@
 
     .feature {
         margin-top: 2rem;
+        padding: 0 4rem;
         @include phone {
             padding: 0 1rem;
         }
-        padding: 0 4rem;
         img,
         h3 {
             display: inline-block;
@@ -35,11 +35,10 @@
             }
         }
         p {
+            margin-left: 5.2rem;
             @include phone {
                 margin-left: 0rem;
             }
-
-            margin-left: 5.2rem;
         }
     }
 }

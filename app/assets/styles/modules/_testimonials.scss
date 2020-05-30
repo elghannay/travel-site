@@ -1,0 +1,17 @@
+.features {
+    color: white;
+    h2 {
+        font-size: 3.5rem;
+        font-weight: 400;
+        text-align: center;
+        @include phone {
+            font-size: 2.5rem;
+        }
+    }
+    strong {
+        font-size: 3.5rem;
+        @include phone {
+            font-size: 2.5rem;
+        }
+    }
+}
