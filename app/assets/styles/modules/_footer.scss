@@ -1,0 +1,16 @@
+.footer {
+    background-color: $mainblue;
+    color: white;
+    text-align: center;
+
+    padding: 2rem;
+    &__text {
+        margin-right: 1.4rem;
+        font-weight: 200;
+        @include phone {
+            display: block;
+            margin-bottom: 1.4rem;
+            margin-right: 0rem;
+        }
+    }
+}
