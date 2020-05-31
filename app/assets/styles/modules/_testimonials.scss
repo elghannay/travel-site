@@ -1,17 +1,57 @@
-.features {
-    color: white;
+.testimonials {
     h2 {
+        color: $mainblue;
         font-size: 3.5rem;
         font-weight: 400;
         text-align: center;
         @include phone {
             font-size: 2.5rem;
         }
+        img {
+            vertical-align: text-bottom;
+            margin-right: 1rem;
+        }
     }
     strong {
         font-size: 3.5rem;
         @include phone {
             font-size: 2.5rem;
+        }
+    }
+    &__container {
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: stretch;
+    }
+    .testimonial {
+        background-color: rgba($color: white, $alpha: 0.8);
+        padding: 2rem;
+        margin: 2rem;
+        position: relative;
+        top: 50px;
+        text-align: center;
+
+        img {
+            border-radius: 50%;
+            border: 4px solid white;
+            display: block;
+            margin: 0 auto -80px auto;
+            position: relative;
+            top: -115px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $mainblue;
+            margin-bottom: 0.5rem;
+        }
+        h4 {
+            font-size: 1rem;
+            color: $mainOrange;
+            margin-bottom: 1rem;
+        }
+        p {
+            text-align: left;
         }
     }
 }

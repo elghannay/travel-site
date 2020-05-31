@@ -6,7 +6,6 @@
     }
     &--medium-4 {
         float: left;
-        // background-color: blue;
         width: 33.33%;
         @include phone {
             width: 100%;
@@ -30,12 +29,10 @@
     &--medium-6 {
         float: left;
         width: 50%;
-        // margin-right: 5rem;
         @include phone {
             margin-right: 0rem;
             width: 100%;
             display: block;
-            // margin: 0 auto;
         }
     }
 }

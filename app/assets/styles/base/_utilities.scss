@@ -15,6 +15,11 @@
     &--blue {
         background-color: $mainblue;
     }
+    &__testimonials {
+        background-image: url(../../assets/images/testimonials-bg.jpg);
+        background-size: cover;
+        background-position: center top;
+    }
 }
 .mb {
     margin-bottom: 3.5rem;
