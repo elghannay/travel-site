@@ -65,7 +65,8 @@
       <div class="row--medium-4">
         <!-- art direction and density switching -->
         <picture>
-          <!-- tells the browser that this image should be at most 404px wide.  -->
+          <!-- by default web browsers assume that images need to take the entire browser widow width -->
+          <!-- so sizes tells the browser that this image should be at most 404px wide.  -->
           <!-- so it can select the right one at different dpi otherwise it will select the largest. -->
           <source sizes="404px" srcset="assets/images/our-start.jpg 404w, assets/images/our-start-hi-dpi.jpg 808w"
             media="(min-width: 1020px)">
@@ -160,7 +161,9 @@
       <div class="row testimonials__container generic-content">
         <div class="row--medium-4">
           <div class="testimonial">
-            <img src="assets/images/testimonial-jane.jpg">
+            <img sizes='160px'
+              srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w"
+              alt="jane doe">
             <div class="testimonial-text">
               <h3>Jane Doe</h3>
               <h4>9 Time Escaper</h4>
@@ -176,7 +179,8 @@
         </div>
         <div class="row--medium-4">
           <div class="testimonial">
-            <img src="assets/images/testimonial-john.jpg">
+            <img sizes="160px"
+              srcset="assets/images/testimonial-john.jpg 160w,assets/images/testimonial-john-hi-dpi.jpg 320w">
             <div class="testimonial-text">
               <h3>John Smith</h3>
               <h4>4 Time Escaper</h4>
@@ -190,7 +194,8 @@
         </div>
         <div class="row--medium-4">
           <div class="testimonial">
-            <img src="assets/images/testimonial-cat.jpg">
+            <img sizes="160px"
+              srcset="assets/images/testimonial-cat.jpg 160w, assets/images/testimonial-cat-hi-dpi.jpg 320w">
             <div class="testimonial-text">
               <h3>Cat McKitty</h3>
               <h4>6 Time Escaper</h4>
