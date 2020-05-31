@@ -1,0 +1,43 @@
+.header {
+    background-color: rgba($color: $mainblue, $alpha: 0.4);
+    color: white;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    padding: 0.5rem 0;
+    img {
+        position: absolute;
+        top: 0px;
+        background-color: $mainblue;
+        padding: 1.1rem;
+        @include phone {
+            top: 0;
+            left: 50%;
+        }
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        float: right;
+        @include phone {
+            display: none;
+        }
+    }
+    ul {
+        margin-right: 2rem;
+        display: flex;
+        li {
+            list-style: none;
+            margin-right: 1rem;
+            a {
+                text-decoration: none;
+                color: white;
+                transition: all 0.2s ease-out;
+                &:hover,
+                &:active {
+                    color: $mainOrange;
+                }
+            }
+        }
+    }
+}
