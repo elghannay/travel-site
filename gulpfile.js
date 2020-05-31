@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     autoprefixer = require('autoprefixer'),
     sass = require("gulp-sass"),
     cssnano = require("cssnano"),
+    svgmin = require('gulp-svgmin'),
     browsersync = require('browser-sync').create();
 sass.compiler = require('node-sass');
 
@@ -15,6 +16,35 @@ gulp.task('styles', function () {
         .pipe(browsersync.stream());
     // .pipe(browsersync.reload({ stream: true }));
 });
+
+
+gulp.task('svgmin', function () {
+    return gulp.src('./app/assets/images/icons/**/*.svg')
+        .pipe(svgmin(
+            {
+            plugins: [{
+                removeViewBox: false
+            }, {
+                removeComments: false
+            }, {
+            }, {
+                removeUselessStrokeAndFill: false
+            }, {
+                removeViewBox: false
+            }, {
+                cleanupNumericValues: {
+                    floatPrecision: 2
+                }
+            }, {
+                convertColors: {
+                    names2hex: false,
+                    rgb2hex: false
+                }
+            }]
+        }))
+        .pipe(gulp.dest('./app/assets/images/icons/optimized'))
+});
+
 
 gulp.task('watch', function () {
     browsersync.init({
