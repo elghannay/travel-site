@@ -67,10 +67,6 @@ gulp.task('scripts', function() {
 // gulp.task('default', gulp.series('server', 'watch')); gulp 4
 // gulp.task('default', ['server', 'watch']);   gulp 3 
 
-gulp.task('scriptsRefresh', gulp.series('scripts',function() {
-  browsersync.reload();
-}) );
-
 ///////////////////////////////////////////////
 ////////////////    webpack    ////////////////
 ///////////////////////////////////////////////
@@ -83,7 +79,7 @@ gulp.task('watch', function () {
         }
     });
     gulp.watch('app/index.html').on('change', browsersync.reload);
-    gulp.watch('app/assets/scripts/**/*.js').on('change', gulp.series('scriptsRefresh'));
+    gulp.watch('app/assets/scripts/**/*.js').on('change', gulp.series('scripts'));
     gulp.watch('app/assets/scripts/**/*.js').on('change', browsersync.reload);
     gulp.watch('app/assets/styles/**/*.scss').on('change', gulp.series('styles'));
 });

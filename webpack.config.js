@@ -6,11 +6,24 @@ const path= require('path');
 module.exports = {
     entry: './app/assets/scripts/app.js',
     // entry: path.resolve(__dirname, 'app') + '/assets/scripts/app.js',
-        output: {
+    output: {
             path: path.resolve(__dirname, './app/temp/scripts'),
             filename: 'bundle.js',
     },
     mode: 'development',
     devtool: 'none',
-        
+    module: {
+    rules: [
+    {
+      test: /\.js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    }
+  ]
+}
 }
