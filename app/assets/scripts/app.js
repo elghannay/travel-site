@@ -1,5 +1,5 @@
 // when we include js with js we don't need to add .js
-const Person = require("./modules/Person")
+var Person = require(".app/assets/scripts/modules/Person");
 
-const person = new Person('mohamed','blue' )
-person.greet()
+const person = new Person('mohamed', 'blue');
+person.greet();
