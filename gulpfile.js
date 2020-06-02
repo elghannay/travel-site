@@ -5,6 +5,9 @@ var gulp = require('gulp'),
     sass = require("gulp-sass"),
     cssnano = require("cssnano"),
     svgmin = require('gulp-svgmin'),
+    // webpack = require('webpack-stream'),
+    webpack = require('webpack'),
+    // compiler = require('webpack'),
     browsersync = require('browser-sync').create();
 sass.compiler = require('node-sass');
 
@@ -16,7 +19,6 @@ gulp.task('styles', function () {
         .pipe(browsersync.stream());
     // .pipe(browsersync.reload({ stream: true }));
 });
-
 
 gulp.task('svgmin', function () {
     return gulp.src('./app/assets/images/icons/**/*.svg')
@@ -46,6 +48,33 @@ gulp.task('svgmin', function () {
 });
 
 
+///////////////////////////////////////////////
+////////////////    webpack    ////////////////
+///////////////////////////////////////////////
+
+gulp.task('scripts', function() {
+  webpack(require('./webpack.config'), function(err, stats) {
+    if (err) {
+      console.log(err.toString());
+    }
+
+    console.log(stats.toString());
+    
+  });
+});
+
+// never use [] as parameters or dependencies they are deprecated since version 3
+// gulp.task('default', gulp.series('server', 'watch')); gulp 4
+// gulp.task('default', ['server', 'watch']);   gulp 3 
+
+gulp.task('scriptsRefresh', gulp.series('scripts',function() {
+  browsersync.reload();
+}) );
+
+///////////////////////////////////////////////
+////////////////    webpack    ////////////////
+///////////////////////////////////////////////
+
 gulp.task('watch', function () {
     browsersync.init({
         notify: false,
@@ -54,5 +83,7 @@ gulp.task('watch', function () {
         }
     });
     gulp.watch('app/index.html').on('change', browsersync.reload);
+    gulp.watch('app/assets/scripts/**/*.js').on('change', gulp.series('scriptsRefresh'));
+    gulp.watch('app/assets/scripts/**/*.js').on('change', browsersync.reload);
     gulp.watch('app/assets/styles/**/*.scss').on('change', gulp.series('styles'));
 });
