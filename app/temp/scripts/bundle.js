@@ -127,10 +127,9 @@ var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]
 __webpack_require__.r(__webpack_exports__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var MobileMenu = function MobileMenu() {
-  _classCallCheck(this, MobileMenu);
+var MobileMenu = function MobileMenu() {// alert('creating a different class');
 
-  alert('creating a different class');
+  _classCallCheck(this, MobileMenu);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MobileMenu);
