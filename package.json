@@ -20,7 +20,8 @@
   "homepage": "https://github.com/elghannay/travel-site#readme",
   "dependencies": {
     "jquery": "^3.4.1",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
