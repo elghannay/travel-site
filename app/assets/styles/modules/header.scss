@@ -56,13 +56,33 @@
         display: none;
         @include phone {
             width: 20px;
-            height: 20px;
-            background-color: #fff;
+            height: 21px;
             position: absolute;
             top: 10px;
             right: 10px;
             z-index: 5;
             display: block;
+            %default {
+                position: absolute;
+                width: 20px;
+                right: 0px;
+                height: 3px;
+                background-color: #fff;
+            }
+            &--middle::before {
+                content: "";
+                top: -8px;
+                @extend %default;
+            }
+            &--middle {
+                top: 10px;
+                @extend %default;
+            }
+            &--middle::after {
+                content: "";
+                top: 8px;
+                @extend %default;
+            }
         }
     }
     .nav {
