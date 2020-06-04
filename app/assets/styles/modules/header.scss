@@ -5,9 +5,15 @@
     z-index: 2;
     width: 100%;
     padding: 0.5rem 0;
-
     @include phone {
-        padding: 0;
+        padding-bottom: 0;
+        padding-top: 7rem;
+        background-color: transparent;
+    }
+    &--bg {
+        @include phone {
+            background-color: rgba($color: $mainblue, $alpha: 0.75);
+        }
     }
     img {
         position: absolute;
@@ -20,20 +26,20 @@
             transform: translateX(-50%);
         }
     }
-    nav {
-        display: flex;
-        align-items: center;
-        float: right;
-        @include phone {
-            display: none;
-        }
-    }
+
     ul {
         margin-right: 2rem;
         display: flex;
+        @include phone {
+            margin: 1rem 0;
+            justify-content: space-between;
+        }
         li {
             list-style: none;
             margin-right: 1rem;
+            @include phone {
+                margin-right: 0rem;
+            }
             a {
                 text-decoration: none;
                 color: white;
@@ -56,6 +62,23 @@
             right: 10px;
             z-index: 5;
             display: block;
+        }
+    }
+    .nav {
+        display: flex;
+        align-items: center;
+        float: right;
+        transition: all 0.2s ease-in-out;
+        @include phone {
+            width: 100%;
+            align-items: center;
+            opacity: 0;
+            flex-flow: column-reverse wrap;
+        }
+        &--is-visible {
+            @include phone {
+                opacity: 1;
+            }
         }
     }
 }

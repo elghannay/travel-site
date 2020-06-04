@@ -107,11 +107,6 @@ if we want to export specific properties of the class we need to specify them in
 // when we include js with require we don't need to add .js
 // the Person variable will store the exports object which is by default empty.
 
-
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // jquery test.
-// $('h2').hide()
-
-
 var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
 /***/ }),
@@ -127,10 +122,44 @@ var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]
 __webpack_require__.r(__webpack_exports__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var MobileMenu = function MobileMenu() {// alert('creating a different class');
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  _classCallCheck(this, MobileMenu);
-};
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+var MobileMenu = /*#__PURE__*/function () {
+  function MobileMenu() {
+    _classCallCheck(this, MobileMenu);
+
+    this.menuIcon = $('.header__menu-icon');
+    this.menuItems = $('.nav');
+    this.header = $('.header');
+    this.events();
+  }
+
+  _createClass(MobileMenu, [{
+    key: "events",
+    value: function events() {
+      this.menuIcon.click(this.toggleMenu.bind(this));
+    }
+  }, {
+    key: "toggleMenu",
+    value: function toggleMenu() {
+      // the value of 'this' changes depending on when and 
+      // where we use it.
+      // without bind, 'this' refers to the element that 
+      // triggers the event 'menuIcon'.
+      // when a function is used as an event handler 
+      // the this keyword in that function is set to the 
+      // Dom element that the event fired from.
+      this.menuItems.toggleClass('nav--is-visible');
+      this.header.toggleClass('header--bg');
+    }
+  }]);
+
+  return MobileMenu;
+}();
 
 /* harmony default export */ __webpack_exports__["default"] = (MobileMenu);
 
