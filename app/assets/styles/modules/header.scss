@@ -32,6 +32,7 @@
         display: flex;
         @include phone {
             margin: 1rem 0;
+            width: 95%;
             justify-content: space-between;
         }
         li {
