@@ -215,7 +215,7 @@ var RevealOnScroll = /*#__PURE__*/function () {
       var that = this;
       this.elementToReveal.each(function () {
         var currentItem = this;
-        new _node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1___default.a({
+        new Waypoint({
           element: currentItem,
           handler: function handler() {
             jquery__WEBPACK_IMPORTED_MODULE_0___default()(currentItem).addClass('reveal-item--is-visible');
