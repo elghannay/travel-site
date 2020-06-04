@@ -97,6 +97,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/MobileMenu */ "./app/assets/scripts/modules/MobileMenu.js");
 /* harmony import */ var _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/revealOnScroll */ "./app/assets/scripts/modules/revealOnScroll.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 /*
 if we want to export specific properties of the class we need to specify them in the
  export object. export = {};
@@ -109,8 +111,10 @@ if we want to export specific properties of the class we need to specify them in
 // the Person variable will store the exports object which is by default empty.
 
 
+
 var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]();
-var revealOnScroll = new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"]();
+new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_2___default()('.feature'), '90%');
+new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_2___default()('.testimonial'), '65%');
 
 /***/ }),
 
@@ -191,10 +195,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 var RevealOnScroll = /*#__PURE__*/function () {
-  function RevealOnScroll() {
+  function RevealOnScroll(elm, offset) {
     _classCallCheck(this, RevealOnScroll);
 
-    this.featureItems = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.feature');
+    this.elementToReveal = elm;
+    this.offsetPercentage = offset;
     this.hideInitially();
     this.createWayPoints();
   }
@@ -202,19 +207,20 @@ var RevealOnScroll = /*#__PURE__*/function () {
   _createClass(RevealOnScroll, [{
     key: "hideInitially",
     value: function hideInitially() {
-      this.featureItems.addClass('reveal-item');
+      this.elementToReveal.addClass('reveal-item');
     }
   }, {
     key: "createWayPoints",
     value: function createWayPoints() {
-      this.featureItems.each(function () {
+      var that = this;
+      this.elementToReveal.each(function () {
         var currentItem = this;
         new _node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1___default.a({
           element: currentItem,
           handler: function handler() {
             jquery__WEBPACK_IMPORTED_MODULE_0___default()(currentItem).addClass('reveal-item--is-visible');
           },
-          offset: '75%'
+          offset: that.offsetPercentage
         });
       });
     }
