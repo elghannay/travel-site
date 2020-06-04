@@ -9,5 +9,9 @@ if we want to export specific properties of the class we need to specify them in
 // when we include js with require we don't need to add .js
 // the Person variable will store the exports object which is by default empty.
 import MobileMenu from "./modules/MobileMenu";
+import RevealOnScroll from "./modules/revealOnScroll";
+import $ from "jquery"
 
 let mobileMenu = new MobileMenu();
+new RevealOnScroll($('.feature'), '90%');
+new RevealOnScroll($('.testimonial'), '65%');
