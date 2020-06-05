@@ -21,7 +21,7 @@
         }
     }
     &--dark img {
-        transform: scale(0.6) translateY(-28px);
+        transform: scale(0.62) translateY(-29px);
     }
     &--bg {
         @include phone {
@@ -29,6 +29,7 @@
         }
     }
     img {
+        transition: all 0.3s ease-out;
         position: absolute;
         top: 0px;
         background-color: $mainblue;
@@ -112,6 +113,11 @@
         &--is-visible {
             @include phone {
                 opacity: 1;
+            }
+        }
+        a {
+            &.is-current-link {
+                color: $mainOrange;
             }
         }
     }

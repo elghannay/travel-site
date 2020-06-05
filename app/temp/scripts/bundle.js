@@ -116,7 +116,7 @@ if we want to export specific properties of the class we need to specify them in
 
 var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]();
 new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_3___default()('.feature'), '90%');
-new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_3___default()('.testimonial'), '65%');
+new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_3___default()('.testimonial'), '80%');
 new _modules_StickyHeader__WEBPACK_IMPORTED_MODULE_2__["default"]();
 
 /***/ }),
@@ -188,11 +188,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/waypoints/lib/noframework.waypoints */ "./node_modules/waypoints/lib/noframework.waypoints.js");
 /* harmony import */ var _node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'jquery-smooth-scroll'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -204,9 +206,19 @@ var StickyHeader = /*#__PURE__*/function () {
     this.header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header');
     this.headerTrigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.large-hero__title');
     this.stickyWayPoint();
+    /* nav links highlight */
+
+    this.navLinks = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.nav a');
+    this.pageSections = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".page-section");
+    this.createPageSectionWaypoints();
   }
 
   _createClass(StickyHeader, [{
+    key: "addSmoothScrolling",
+    value: function addSmoothScrolling() {
+      this.navLinks.smoothScroll();
+    }
+  }, {
     key: "stickyWayPoint",
     value: function stickyWayPoint() {
       var that = this;
@@ -219,6 +231,36 @@ var StickyHeader = /*#__PURE__*/function () {
             that.header.removeClass('header--dark');
           }
         }
+      });
+    }
+  }, {
+    key: "createPageSectionWaypoints",
+    value: function createPageSectionWaypoints() {
+      var that = this;
+      this.pageSections.each(function () {
+        var currentPageSection = this;
+        new Waypoint({
+          element: currentPageSection,
+          handler: function handler(direction) {
+            if (direction == "down") {
+              var matchingHeaderLink = currentPageSection.getAttribute("data-target-link");
+              that.navLinks.removeClass("is-current-link");
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(matchingHeaderLink).addClass("is-current-link");
+            }
+          },
+          offset: "18%"
+        });
+        new Waypoint({
+          element: currentPageSection,
+          handler: function handler(direction) {
+            if (direction == "up") {
+              var matchingHeaderLink = currentPageSection.getAttribute("data-target-link");
+              that.navLinks.removeClass("is-current-link");
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(matchingHeaderLink).addClass("is-current-link");
+            }
+          },
+          offset: "-40%"
+        });
       });
     }
   }]);

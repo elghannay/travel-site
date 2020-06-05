@@ -16,5 +16,5 @@ import $ from "jquery"
 
 let mobileMenu = new MobileMenu();
 new RevealOnScroll($('.feature'), '90%');
-new RevealOnScroll($('.testimonial'), '65%');
+new RevealOnScroll($('.testimonial'), '80%');
 new StickyHeader();

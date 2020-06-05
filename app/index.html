@@ -22,9 +22,9 @@
       <div class="header__navigation">
         <nav class="nav ">
           <ul>
-            <li><a href="#our-beginning">Our Beginning</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#our-beginning" id="our-beginning-link">Our Beginning</a></li>
+            <li><a href="#features" id="features-link">Features</a></li>
+            <li><a href="#testimonials" id="testimonials-link">Testimonials</a></li>
           </ul>
           <a class="btn" href="#">Get in Touch</a>
         </nav>
@@ -54,7 +54,7 @@
     </div>
   </div>
 
-  <div id="our-beginning" class="page-section wrapper ">
+  <div id="our-beginning" class="wrapper ">
     <!-- <div "> -->
     <h2 class="heading--primary center">The first trip we planned <strong>was our own.</strong>
     </h2>
@@ -68,7 +68,7 @@
         alt="Couple walking down a street.">
     </div>
 
-    <div class="row page-section">
+    <div class="row page-section" data-target-link="#our-beginning-link">
       <div class="row--medium-4">
         <!-- art direction and density switching -->
         <picture>
@@ -117,7 +117,7 @@
   </div>
   <!-- </div> -->
 
-  <div id="features" class="features generic-content page-section page-section--blue">
+  <div id="features" class="features generic-content page-section page-section--blue" data-target-link="#features-link">
     <div class="wrapper">
 
       <h2><img src="assets/images/icons/star.svg">Our <strong>Features</strong></h2>
@@ -162,7 +162,8 @@
     </div>
   </div>
 
-  <div id="testimonials" class="page-section page-section__testimonials testimonials">
+  <div id="testimonials" class="page-section page-section__testimonials testimonials"
+    data-target-link="#testimonials-link">
     <h2><img src="assets/images/icons/comment.svg">Real <strong>Testimonials</strong></h2>
     <div class=" wrapper">
       <div class="row testimonials__container generic-content">
