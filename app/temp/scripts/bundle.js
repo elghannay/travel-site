@@ -97,8 +97,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/MobileMenu */ "./app/assets/scripts/modules/MobileMenu.js");
 /* harmony import */ var _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/revealOnScroll */ "./app/assets/scripts/modules/revealOnScroll.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_StickyHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/StickyHeader */ "./app/assets/scripts/modules/StickyHeader.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
 /*
 if we want to export specific properties of the class we need to specify them in the
  export object. export = {};
@@ -112,9 +113,11 @@ if we want to export specific properties of the class we need to specify them in
 
 
 
+
 var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]();
-new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_2___default()('.feature'), '90%');
-new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_2___default()('.testimonial'), '65%');
+new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_3___default()('.feature'), '90%');
+new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_3___default()('.testimonial'), '65%');
+new _modules_StickyHeader__WEBPACK_IMPORTED_MODULE_2__["default"]();
 
 /***/ }),
 
@@ -169,6 +172,61 @@ var MobileMenu = /*#__PURE__*/function () {
 }();
 
 /* harmony default export */ __webpack_exports__["default"] = (MobileMenu);
+
+/***/ }),
+
+/***/ "./app/assets/scripts/modules/StickyHeader.js":
+/*!****************************************************!*\
+  !*** ./app/assets/scripts/modules/StickyHeader.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/waypoints/lib/noframework.waypoints */ "./node_modules/waypoints/lib/noframework.waypoints.js");
+/* harmony import */ var _node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+var StickyHeader = /*#__PURE__*/function () {
+  function StickyHeader() {
+    _classCallCheck(this, StickyHeader);
+
+    this.header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header');
+    this.headerTrigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.large-hero__title');
+    this.stickyWayPoint();
+  }
+
+  _createClass(StickyHeader, [{
+    key: "stickyWayPoint",
+    value: function stickyWayPoint() {
+      var that = this;
+      new Waypoint({
+        element: this.headerTrigger[0],
+        handler: function handler(direction) {
+          if (direction === 'down') {
+            that.header.addClass('header--dark');
+          } else {
+            that.header.removeClass('header--dark');
+          }
+        }
+      });
+    }
+  }]);
+
+  return StickyHeader;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (StickyHeader);
 
 /***/ }),
 
