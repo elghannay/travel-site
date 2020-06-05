@@ -98,8 +98,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/MobileMenu */ "./app/assets/scripts/modules/MobileMenu.js");
 /* harmony import */ var _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/revealOnScroll */ "./app/assets/scripts/modules/revealOnScroll.js");
 /* harmony import */ var _modules_StickyHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/StickyHeader */ "./app/assets/scripts/modules/StickyHeader.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ "./app/assets/scripts/modules/modal.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
 /*
 if we want to export specific properties of the class we need to specify them in the
  export object. export = {};
@@ -114,9 +115,11 @@ if we want to export specific properties of the class we need to specify them in
 
 
 
+
 var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]();
-new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_3___default()('.feature'), '90%');
-new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_3___default()('.testimonial'), '80%');
+var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_3__["default"]();
+new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_4___default()('.feature'), '90%');
+new _modules_revealOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"](jquery__WEBPACK_IMPORTED_MODULE_4___default()('.testimonial'), '80%');
 new _modules_StickyHeader__WEBPACK_IMPORTED_MODULE_2__["default"]();
 
 /***/ }),
@@ -271,6 +274,72 @@ var StickyHeader = /*#__PURE__*/function () {
 }();
 
 /* harmony default export */ __webpack_exports__["default"] = (StickyHeader);
+
+/***/ }),
+
+/***/ "./app/assets/scripts/modules/modal.js":
+/*!*********************************************!*\
+  !*** ./app/assets/scripts/modules/modal.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Modal = /*#__PURE__*/function () {
+  function Modal() {
+    _classCallCheck(this, Modal);
+
+    this.modalTrigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.open-modal');
+    this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.modal__close');
+    this.modal = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.modal');
+    this.events();
+  }
+
+  _createClass(Modal, [{
+    key: "events",
+    value: function events() {
+      // select the modal buttons 
+      this.modalTrigger.click(this.openModal.bind(this)); // select the close modal button
+
+      this.closeButton.click(this.closeModal.bind(this)); // detect the "ESC" key
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).keyup(this.keyPressHandler.bind(this));
+    }
+  }, {
+    key: "keyPressHandler",
+    value: function keyPressHandler(e) {
+      if (e.keyCode == 27) {
+        this.closeModal();
+      }
+    }
+  }, {
+    key: "openModal",
+    value: function openModal() {
+      this.modal.addClass('modal__is-visible');
+      return false;
+    }
+  }, {
+    key: "closeModal",
+    value: function closeModal() {
+      this.modal.removeClass('modal__is-visible');
+    }
+  }]);
+
+  return Modal;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
 
 /***/ }),
 
