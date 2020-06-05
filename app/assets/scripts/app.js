@@ -11,10 +11,11 @@ if we want to export specific properties of the class we need to specify them in
 import MobileMenu from "./modules/MobileMenu";
 import RevealOnScroll from "./modules/revealOnScroll";
 import StickyHeader from "./modules/StickyHeader"
-import $ from "jquery"
-
+import Modal from "./modules/modal";
+import $ from "jquery";
 
 let mobileMenu = new MobileMenu();
+let modal = new Modal();
 new RevealOnScroll($('.feature'), '90%');
 new RevealOnScroll($('.testimonial'), '80%');
 new StickyHeader();
