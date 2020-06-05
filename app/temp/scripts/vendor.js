@@ -81,14 +81,14 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./app/assets/scripts/Vendor.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./app/assets/scripts/vendor.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./app/assets/scripts/Vendor.js":
+/***/ "./app/assets/scripts/vendor.js":
 /*!**************************************!*\
-  !*** ./app/assets/scripts/Vendor.js ***!
+  !*** ./app/assets/scripts/vendor.js ***!
   \**************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
