@@ -1,0 +1,2 @@
+import 'lazysizes';
+// import 'picturefill';

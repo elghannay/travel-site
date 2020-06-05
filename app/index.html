@@ -10,6 +10,7 @@
   <meta name="description"
     content="Your clarity. One trip away. We create soul restoring journeys that inspire you to be you.">
   <link rel="stylesheet" href="temp/styles/style.css">
+  <script src="temp/scripts/vendor.js"></script>
 </head>
 
 <body>
@@ -63,8 +64,8 @@
     <div class="center">
       <!-- this used only for density switching  the image will be at 976px on all screens that are above 970px  -->
       <!-- and 100vw if less -->
-      <img class="" sizes="(min-width: 970px) 976px, 100vw"
-        srcset="assets/images/first-trip-low-res.jpg 565w, assets/images/first-trip.jpg 976w, assets/images/first-trip-hi-dpi.jpg 1952w"
+      <img class="lazyload" sizes="(min-width: 970px) 976px, 100vw"
+        data-srcset="assets/images/first-trip-low-res.jpg 565w, assets/images/first-trip.jpg 976w, assets/images/first-trip-hi-dpi.jpg 1952w"
         alt="Couple walking down a street.">
     </div>
 
@@ -75,12 +76,14 @@
           <!-- by default web browsers assume that images need to take the entire browser widow width -->
           <!-- so sizes tells the browser that this image should be at most 404px wide.  -->
           <!-- so it can select the right one at different dpi otherwise it will select the largest. -->
-          <source sizes="404px" srcset="assets/images/our-start.jpg 404w, assets/images/our-start-hi-dpi.jpg 808w"
+          <source class="lazyload" sizes="404px"
+            data-srcset="assets/images/our-start.jpg 404w, assets/images/our-start-hi-dpi.jpg 808w"
             media="(min-width: 1020px)">
-          <source sizes="320px"
-            srcset="assets/images/our-start-portrait.jpg 382w, assets/images/our-start-portrait-hi-dpi.jpg 764w"
+          <source class="lazyload" sizes="320px"
+            data-srcset="assets/images/our-start-portrait.jpg 382w, assets/images/our-start-portrait-hi-dpi.jpg 764w"
             media="(min-width: 800px)">
-          <img srcset="assets/images/our-start-landscape.jpg 800w, assets/images/our-start-landscape-hi-dpi.jpg 1600w"
+          <img class='lazyload'
+            data-srcset="assets/images/our-start-landscape.jpg 800w, assets/images/our-start-landscape-hi-dpi.jpg 1600w"
             alt="Our founder, Jane Doe">
         </picture>
       </div>
@@ -162,15 +165,15 @@
     </div>
   </div>
 
-  <div id="testimonials" class="page-section page-section__testimonials testimonials"
+  <div id="testimonials" class="page-section page-section__testimonials testimonials lazyload"
     data-target-link="#testimonials-link">
     <h2><img src="assets/images/icons/comment.svg">Real <strong>Testimonials</strong></h2>
     <div class=" wrapper">
       <div class="row testimonials__container generic-content">
         <div class="row--medium-4">
           <div class="testimonial">
-            <img sizes='160px'
-              srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w"
+            <img class='lazyload' sizes='160px'
+              data-srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w"
               alt="jane doe">
             <div class="testimonial-text">
               <h3>Jane Doe</h3>
@@ -187,8 +190,8 @@
         </div>
         <div class="row--medium-4">
           <div class="testimonial">
-            <img sizes="160px"
-              srcset="assets/images/testimonial-john.jpg 160w,assets/images/testimonial-john-hi-dpi.jpg 320w">
+            <img sizes="160px" class='lazyload'
+              data-srcset="assets/images/testimonial-john.jpg 160w,assets/images/testimonial-john-hi-dpi.jpg 320w">
             <div class="testimonial-text">
               <h3>John Smith</h3>
               <h4>4 Time Escaper</h4>
@@ -202,8 +205,8 @@
         </div>
         <div class="row--medium-4">
           <div class="testimonial">
-            <img sizes="160px"
-              srcset="assets/images/testimonial-cat.jpg 160w, assets/images/testimonial-cat-hi-dpi.jpg 320w">
+            <img sizes="160px" class='lazyload'
+              data-srcset="assets/images/testimonial-cat.jpg 160w, assets/images/testimonial-cat-hi-dpi.jpg 320w">
             <div class="testimonial-text">
               <h3>Cat McKitty</h3>
               <h4>6 Time Escaper</h4>
@@ -237,7 +240,7 @@
     </div>
     <div class="modal__close">X</div>
   </div>
-  <script src="temp/scripts/bundle.js"></script>
+  <script src="temp/scripts/app.js"></script>
 </body>
 
 </html>

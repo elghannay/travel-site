@@ -16,9 +16,11 @@
         background-color: $mainblue;
     }
     &__testimonials {
-        background-image: url(../../assets/images/testimonials-bg.jpg);
-        background-size: cover;
-        background-position: center top;
+        &.lazyloaded {
+            background-image: url(../../assets/images/testimonials-bg.jpg);
+            background-size: cover;
+            background-position: center top;
+        }
     }
 }
 .mb {

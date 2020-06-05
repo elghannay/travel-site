@@ -4,6 +4,7 @@ import smoothScroll from 'jquery-smooth-scroll';
 
 class StickyHeader{
     constructor() {
+        this.lazyImages = $('.lazyload');
         this.header = $('.header');
         this.headerTrigger = $('.large-hero__title');
         this.stickyWayPoint();
@@ -12,10 +13,22 @@ class StickyHeader{
         this.pageSections = $(".page-section");
         this.createPageSectionWaypoints();
         this.addSmoothScrolling();
+        this.refreshWaypoints();
     }
 
     addSmoothScrolling() {
         this.navLinks.smoothScroll();
+    }
+
+    refreshWaypoints() {
+        // once we load our page the wayPoint library determines how 
+        // many pixels it will take to perform an action, in case
+        // of lazyloaded images the distance to reach a point changes
+        // thus we need to update the waypoint global object each time 
+        // we reach a lazyloaded image.
+        this.lazyImages.on('load',function () {
+            Waypoint.refreshAll();
+        })
     }
 
     stickyWayPoint() {
