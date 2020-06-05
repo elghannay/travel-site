@@ -12,8 +12,7 @@ import MobileMenu from "./modules/MobileMenu";
 import RevealOnScroll from "./modules/revealOnScroll";
 import StickyHeader from "./modules/StickyHeader"
 import Modal from "./modules/modal";
-import $ from "jquery"
-
+import $ from "jquery";
 
 let mobileMenu = new MobileMenu();
 let modal = new Modal();

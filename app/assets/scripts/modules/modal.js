@@ -24,6 +24,7 @@ class Modal{
 
     openModal(){
         this.modal.addClass('modal__is-visible');
+        // to prevent the default behavior of links, no scroll to the top
         return false;
     }
 

@@ -207,6 +207,10 @@ var StickyHeader = /*#__PURE__*/function () {
   function StickyHeader() {
     _classCallCheck(this, StickyHeader);
 
+<<<<<<< HEAD
+=======
+    this.lazyImages = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.lazyload');
+>>>>>>> 89db356684cb2d6e416d040b27ab720a5cb11c07
     this.header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header');
     this.headerTrigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.large-hero__title');
     this.stickyWayPoint();
@@ -216,6 +220,10 @@ var StickyHeader = /*#__PURE__*/function () {
     this.pageSections = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".page-section");
     this.createPageSectionWaypoints();
     this.addSmoothScrolling();
+<<<<<<< HEAD
+=======
+    this.refreshWaypoints();
+>>>>>>> 89db356684cb2d6e416d040b27ab720a5cb11c07
   }
 
   _createClass(StickyHeader, [{
@@ -224,6 +232,21 @@ var StickyHeader = /*#__PURE__*/function () {
       this.navLinks.smoothScroll();
     }
   }, {
+<<<<<<< HEAD
+=======
+    key: "refreshWaypoints",
+    value: function refreshWaypoints() {
+      // once we load our page the wayPoint library determines how 
+      // many pixels it will take to perform an action, in case
+      // of lazyloaded images the distance to reach a point changes
+      // thus we need to update the waypoint global object each time 
+      // we reach a lazyloaded image.
+      this.lazyImages.on('load', function () {
+        Waypoint.refreshAll();
+      });
+    }
+  }, {
+>>>>>>> 89db356684cb2d6e416d040b27ab720a5cb11c07
     key: "stickyWayPoint",
     value: function stickyWayPoint() {
       var that = this;
@@ -326,7 +349,12 @@ var Modal = /*#__PURE__*/function () {
   }, {
     key: "openModal",
     value: function openModal() {
+<<<<<<< HEAD
       this.modal.addClass('modal__is-visible');
+=======
+      this.modal.addClass('modal__is-visible'); // to prevent the default behavior of links, no scroll to the top
+
+>>>>>>> 89db356684cb2d6e416d040b27ab720a5cb11c07
       return false;
     }
   }, {
