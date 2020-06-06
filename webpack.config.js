@@ -15,6 +15,11 @@ module.exports = {
     },
     mode: 'development',
     devtool: 'none',
+  //   devServer: {
+  //     contentBase: 'app',
+  //      port: 3000
+  // }
+  
     module: {
     rules: [
     {
