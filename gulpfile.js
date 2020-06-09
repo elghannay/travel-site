@@ -5,9 +5,12 @@ var gulp = require('gulp'),
     sass = require("gulp-sass"),
     cssnano = require("cssnano"),
     svgmin = require('gulp-svgmin'),
-    // webpack = require('webpack-stream'),
+    imagemin = require('gulp-imagemin'),
+    del = require('del'),
+    usemin = require('gulp-usemin'),
+    rev = require('gulp-rev'),
+    uglify = require('gulp-uglify'),
     webpack = require('webpack'),
-    // compiler = require('webpack'),
     browsersync = require('browser-sync').create();
 sass.compiler = require('node-sass');
 
@@ -67,9 +70,9 @@ gulp.task('scripts', function() {
 // gulp.task('default', gulp.series('server', 'watch')); gulp 4
 // gulp.task('default', ['server', 'watch']);   gulp 3 
 
-///////////////////////////////////////////////
-////////////////    webpack    ////////////////
-///////////////////////////////////////////////
+///////////////////////////////////////////////////
+////////////////    dist folder    ////////////////
+///////////////////////////////////////////////////
 
 gulp.task('watch', function () {
     browsersync.init({
