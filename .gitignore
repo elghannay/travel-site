@@ -11,7 +11,8 @@
 *.sass-cache
 node_modules/
 .tmp/
-
+dist/assets/images
+docs/assets/images
 # OS or Editor folders
 .DS_Store
 Thumbs.db

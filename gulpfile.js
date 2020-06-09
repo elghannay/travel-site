@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer'),
     sass = require("gulp-sass"),
-    cssnano = require("cssnano"),
+    cssnano = require("gulp-cssnano"),
     svgmin = require('gulp-svgmin'),
     imagemin = require('gulp-imagemin'),
     del = require('del'),
@@ -17,7 +17,7 @@ sass.compiler = require('node-sass');
 gulp.task('styles', function () {
     return gulp.src('./app/assets/styles/style.scss')
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-        .pipe(postcss([autoprefixer('last 2 versions'), cssnano()]))
+        .pipe(postcss([autoprefixer('last 2 versions')]))
         .pipe(gulp.dest('./app/temp/styles/'))
         .pipe(browsersync.stream());
     // .pipe(browsersync.reload({ stream: true }));
@@ -74,6 +74,59 @@ gulp.task('scripts', function() {
 ////////////////    dist folder    ////////////////
 ///////////////////////////////////////////////////
 
+gulp.task('deleteDistFolder', function () {
+    return del("./dist");
+});
+
+gulp.task('copyGeneralFiles', function () {
+    var pathsToCopy = [
+        './app/**/*',
+        '!./app/index.html',
+        '!./app/assets/images/**',
+        '!./app/assets/styles/**',
+        '!./app/assets/scripts/**',
+        '!./app/temp',
+        '!./app/temp/**'
+    ]
+
+    return gulp.src(pathsToCopy)
+        .pipe(gulp.dest("./dist"));
+});
+
+gulp.task('optimizeImages', function () {
+    return gulp.src('./app/assets/images/**/*')
+        .pipe(imagemin({
+            progressive: true,
+            interlaced: true,
+            multipass: true
+        }))
+        .pipe(gulp.dest("./dist/assets/images"));
+});
+
+gulp.task('usemin', async function () {
+    return gulp.src("./app/index.html")
+        .pipe(usemin({
+            css: [function () { return rev() }, function () { return cssnano() }],
+            js: [function () { return rev() }, function () {  return uglify() }]
+        }))
+        .pipe(gulp.dest("./dist"));
+});
+
+gulp.task('build', gulp.series('deleteDistFolder', 'copyGeneralFiles', 'optimizeImages', 'styles',   'usemin'));
+
+gulp.task('previewDist', function () {
+    browsersync.init({
+        notify: false,
+        server: {
+            baseDir: "dist"
+        }
+    });
+});
+
+///////////////////////////////////////////////////
+////////////////  end dist folder  ////////////////
+///////////////////////////////////////////////////
+
 gulp.task('watch', function () {
     browsersync.init({
         notify: false,
@@ -86,3 +139,4 @@ gulp.task('watch', function () {
     gulp.watch('app/assets/scripts/**/*.js').on('change', browsersync.reload);
     gulp.watch('app/assets/styles/**/*.scss').on('change', gulp.series('styles'));
 });
+
